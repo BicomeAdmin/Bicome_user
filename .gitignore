@@ -1,0 +1,20 @@
+# 依賴模組
+/node_modules
+
+# 建置輸出/暫存檔案
+/dist
+/build
+/temp
+
+# 環境變數 (重要！包含您的 Supabase 密鑰)
+.env
+.env.local
+.env.*.local
+
+# IDE 專案設定檔 (JetBrains 系列)
+.idea/
+*.iml
+
+# 覆蓋檔案 (例如 Vercel/Netlify 等服務的暫存檔案)
+.vercel/
+.netlify/

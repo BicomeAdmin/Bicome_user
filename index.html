@@ -1,0 +1,75 @@
+
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>台灣社群圈積分系統</title>
+    <meta name="description" content="台灣社群圈積分系統 - 參與社群活動，獲得積分獎勵，兌換豐富獎品" />
+    <meta name="keywords" content="台灣社群,積分系統,獎勵,社群互動" />
+    
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+      /* 防止第三方插件樣式衝突 */
+      #root {
+        isolation: isolate;
+      }
+      
+      /* 修復 iframe 沙盒警告 */
+      iframe[sandbox] {
+        sandbox: allow-scripts allow-forms allow-popups allow-top-navigation;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Readdy Agent Widget -->
+    <script 
+      src="https://readdy.ai/api/public/assistant/widget?projectId=91810236-ffb4-4ff8-853b-d32261ecd76b"
+      mode="hybrid"
+      voice-show-transcript="true"
+      theme="light"
+      size="compact"
+      accent-color="#14B8A6"
+      button-base-color="#000000"
+      button-accent-color="#FFFFFF"
+      main-label="台灣社群圈客服"
+      start-button-text="開始對話"
+      end-button-text="結束通話"
+      defer
+      async
+    ></script>
+    
+    <script>
+      // 防止多個 GoTrueClient 實例警告
+      window.addEventListener('DOMContentLoaded', function() {
+        // 延遲載入第三方腳本以避免衝突
+        setTimeout(() => {
+          // 確保 Readdy Agent 正確初始化
+          if (window.ReadyAgent) {
+            console.log('✅ Readdy Agent 已成功載入');
+          }
+        }, 1000);
+      });
+      
+      // 防止 autofocus 衝突
+      document.addEventListener('DOMContentLoaded', function() {
+        // 移除可能衝突的 autofocus
+        const focusedElement = document.activeElement;
+        if (focusedElement && focusedElement !== document.body) {
+          focusedElement.blur();
+        }
+      });
+    </script>
+  </body>
+</html>
